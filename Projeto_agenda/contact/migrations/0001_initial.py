@@ -21,7 +21,8 @@ class Migration(migrations.Migration):
                 ('last_name', models.CharField(blank=True, max_length=50)),
                 ('phone', models.CharField(max_length=50)),
                 ('email', models.EmailField(blank=True, max_length=254)),
-                ('created_date', models.DateTimeField(verbose_name=django.utils.timezone.now)),  # type:ignore
+                ('created_date', models.DateTimeField(
+                    verbose_name=django.utils.timezone.now)),  # type:ignore
             ],
         ),
     ]

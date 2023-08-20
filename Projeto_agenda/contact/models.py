@@ -7,9 +7,9 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
-    
+
     name = models.CharField(max_length=50)
-    
+
     def __str__(self) -> str:
         return f'{self.name}'
 
@@ -18,7 +18,7 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, blank=True)
     description = models.TextField(default='Descrição', max_length=300)
-    phone = models.CharField(max_length=50)
+    phone = models.IntegerField(max_length=15)
     email = models.EmailField(max_length=254, blank=True)
     created_date = models.DateTimeField(default=timezone.now)  # type:ignore
     show = models.BooleanField(default=True)
@@ -27,14 +27,13 @@ class Contact(models.Model):
         Category,
         on_delete=models.SET_NULL,
         blank=True, null=True
-        )
+    )
     owner = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
         blank=True, null=True
-        )
-    
-    
+    )
+
     # upload_to vai automaticamente para a pasta 'media'. Configurei no settings
     # o parâmetro blank=True desabilita a obrigatoriedade do preenximento da
     # variável selecionada

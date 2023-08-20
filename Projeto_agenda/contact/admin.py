@@ -18,4 +18,3 @@ class ContactAdmin(admin.ModelAdmin):
     list_editable = 'first_name', 'last_name', 'show'
     list_display_links = 'id', 'phone',
     # list_filter = 'created_date',
-
